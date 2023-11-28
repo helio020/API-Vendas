@@ -6,8 +6,13 @@ Aplicação backend para gestão de vendas com funcionalidades para criação de
 
 Faça um clone deste repositório e instale no seu ambiente de desenvolvimento usando o seguinte comando no seu terminal (escolha um diretório apropriado):
 
+HTTPS
 ```
 git clone https://github.com/helio020/api-vendas.git
+```
+SSH
+```
+git clone git@github.com:helio020/api-vendas.git
 ```
 
 Após clonar o conteúdo do repositório, acesse o diretório criado e efetue a instalação das dependências:

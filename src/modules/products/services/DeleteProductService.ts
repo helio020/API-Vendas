@@ -2,11 +2,12 @@ import { inject, injectable } from 'tsyringe';
 import { IProductsRepository } from '../domain/repositories/IProductsRepository';
 import { IDeleteProduct } from '../domain/models/IDeleteProduct';
 import AppError from '@shared/errors/AppError';
+import ProductsRepository from '../infra/typeorm/repositories/ProductsRepository';
 
 @injectable()
 class DeleteProductService {
   constructor(
-    @inject('ProductsRepository')
+    @inject(ProductsRepository)
     private productsRepository: IProductsRepository,
   ) {}
 

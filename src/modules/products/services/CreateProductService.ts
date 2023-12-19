@@ -3,11 +3,12 @@ import AppError from '@shared/errors/AppError';
 import { ICreateProduct } from '../domain/models/ICreateProduct';
 import { IProductsRepository } from '../domain/repositories/IProductsRepository';
 import { IProduct } from '../domain/models/IProduct';
+import ProductsRepository from '../infra/typeorm/repositories/ProductsRepository';
 
 @injectable()
 class CreateProductService {
   constructor(
-    @inject('ProductsRepository')
+    @inject(ProductsRepository)
     private productsRepository: IProductsRepository,
   ) {}
 

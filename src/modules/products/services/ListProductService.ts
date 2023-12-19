@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 import { IProductsRepository } from '../domain/repositories/IProductsRepository';
 import { IProductPaginate } from '../domain/models/IProductPaginate';
+import ProductsRepository from '../infra/typeorm/repositories/ProductsRepository';
 
 interface SearchParams {
   page: number;
@@ -10,7 +11,7 @@ interface SearchParams {
 @injectable()
 class ListProductService {
   constructor(
-    @inject('ProductsRepository')
+    @inject(ProductsRepository)
     private productsRepository: IProductsRepository,
   ) {}
 

@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 import User from '@modules/users/infra/typeorm/entities/User';
-import { IUsersRepository } from '../IUsersRepository';
 import { ICreateUser } from '../../models/ICreateUser';
 import { IPaginateUser } from '../../models/IPaginateUser';
+import { IFakeUsersRepository } from './IFakeUsersRepository';
 
-class FakeUsersRepository implements IUsersRepository {
+class FakeUsersRepository implements IFakeUsersRepository {
   private users: User[] = [];
 
   public async create({ name, email, password }: ICreateUser): Promise<User> {
@@ -28,8 +28,13 @@ class FakeUsersRepository implements IUsersRepository {
     return user;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  public async remove(user: User): Promise<void> {}
+  public async remove(user: User): Promise<void> {
+    const findIndex = this.users.findIndex(findUser => findUser.id === user.id);
+
+    this.users.splice(findIndex, 1);
+
+    return; // void;
+  }
 
   public async findAll(): Promise<IPaginateUser> {
     const usersPaginate = {

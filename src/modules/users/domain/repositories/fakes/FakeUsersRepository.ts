@@ -31,11 +31,7 @@ class FakeUsersRepository implements IUsersRepository {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async remove(user: User): Promise<void> {}
 
-  public async findAll(): Promise<User[]> {
-    return this.users;
-  }
-
-  public async findAllPaginate(): Promise<IPaginateUser> {
+  public async findAll(): Promise<IPaginateUser> {
     const usersPaginate = {
       from: 1,
       to: 1,

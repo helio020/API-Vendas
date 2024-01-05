@@ -9,7 +9,7 @@ type SearchParams = {
 };
 
 export interface IUsersRepository {
-  findAllPaginate({ page, skip, take }: SearchParams): Promise<IPaginateUser>;
+  findAll({ page, skip, take }: SearchParams): Promise<IPaginateUser>;
   findByName(name: string): Promise<IUser | undefined>;
   findById(id: string): Promise<IUser | undefined>;
   findByEmail(email: string): Promise<IUser | undefined>;

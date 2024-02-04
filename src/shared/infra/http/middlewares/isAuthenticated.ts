@@ -9,14 +9,8 @@ interface ITokenPayload {
   sub: string;
 }
 
-interface RequestWithUser extends Request {
-  user?: {
-    id: string;
-  };
-}
-
 export default function isAuthenticated(
-  request: RequestWithUser,
+  request: Request,
   response: Response,
   next: NextFunction,
 ): void {

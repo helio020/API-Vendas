@@ -6,13 +6,15 @@ import { IUserAuthenticated } from '../domain/models/IUserAuthenticated';
 import AppError from '@shared/errors/AppError';
 import { Secret, sign } from 'jsonwebtoken';
 import auth from '@config/auth';
+import UsersRepository from '../infra/typeorm/repositories/UsersRepository';
+import BcryptHashProvider from '../providers/HashProvider/implementations/BcryptHashProvider';
 
 @injectable()
 class CreateSessionsService {
   constructor(
-    @inject('UsersRepository')
+    @inject(UsersRepository)
     private usersRepository: IUsersRepository,
-    @inject('HashProvider')
+    @inject(BcryptHashProvider)
     private hashProvider: IHashProvider,
   ) {}
 

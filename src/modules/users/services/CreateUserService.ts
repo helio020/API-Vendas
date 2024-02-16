@@ -4,13 +4,15 @@ import { IUsersRepository } from '../domain/repositories/IUsersRepository';
 import { ICreateUser } from '../domain/models/ICreateUser';
 import { IUser } from '../domain/models/IUser';
 import { IHashProvider } from '../providers/HashProvider/models/IHashProvider';
+import UsersRepository from '../infra/typeorm/repositories/UsersRepository';
+import BcryptHashProvider from '../providers/HashProvider/implementations/BcryptHashProvider';
 
 @injectable()
 class CreateUserService {
   constructor(
-    @inject('UsersRepository')
+    @inject(UsersRepository)
     private usersRepository: IUsersRepository,
-    @inject('HashProvider')
+    @inject(BcryptHashProvider)
     private hashProvider: IHashProvider,
   ) {}
 

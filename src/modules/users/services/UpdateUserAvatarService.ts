@@ -6,11 +6,12 @@ import AppError from '@shared/errors/AppError';
 import uploadConfig from '@config/upload';
 import S3StorageProvider from '@shared/providers/StorageProvider/S3StorageProvider';
 import DiskStorageProvider from '@shared/providers/StorageProvider/DiskStorageProvider';
+import UsersRepository from '../infra/typeorm/repositories/UsersRepository';
 
 @injectable()
 class UpdateUserAvatarService {
   constructor(
-    @inject('UsersRepository')
+    @inject(UsersRepository)
     private usersRepository: IUsersRepository,
   ) {}
 

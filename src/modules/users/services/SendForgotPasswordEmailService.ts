@@ -7,14 +7,16 @@ import path from 'path';
 import mailConfig from '@config/mail/mail';
 import SESMail from '@config/mail/SESMail';
 import EtherealMail from '@config/mail/EtherealMail';
+import UsersRepository from '../infra/typeorm/repositories/UsersRepository';
+import UserTokensRepository from '../infra/typeorm/repositories/UserTokensRepository';
 
 @injectable()
 class SendForgotPasswordEmailService {
   constructor(
-    @inject('UsersRepository')
+    @inject(UsersRepository)
     private usersRepository: IUsersRepository,
 
-    @inject('UserTokensRepository')
+    @inject(UserTokensRepository)
     private userTokensRepository: IUserTokensRepository,
   ) {}
 

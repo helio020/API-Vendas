@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 interface IMailConfig {
   driver: 'ethereal' | 'ses';
   defaults: {

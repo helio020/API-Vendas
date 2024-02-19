@@ -14,7 +14,7 @@ export default class S3StorageProvider {
   public async saveFile(file: string): Promise<string> {
     const originalPath = path.resolve(uploadConfig.tmpFolder, file);
 
-    const ContentType = mime.getType(originalPath);
+    const ContentType = mime.extension(originalPath);
 
     if (!ContentType) {
       throw new Error('File not found');

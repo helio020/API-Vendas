@@ -1,6 +1,7 @@
 import multer, { StorageEngine } from 'multer';
 import path from 'path';
 import crypto from 'crypto';
+import 'dotenv/config';
 
 interface IUploadConfig {
   driver: 's3' | 'disk';
